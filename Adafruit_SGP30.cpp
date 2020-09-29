@@ -142,6 +142,86 @@ boolean Adafruit_SGP30::IAQmeasureRaw(void) {
 }
 
 /*!
+ *  @brief  Commands the sensor to take a single eCO2/VOC measurement, if the result is not older than {@link maxAge}. Places
+ *          results in {@link TVOC} and {@link eCO2}
+ *  @return {@link TVOC} if command completed successfully, -1 if something went
+ *          wrong!
+ */
+uint16_t Adafruit_SGP30::readTVOC(long maxAge) {
+  bool result = true;
+  if (millis() - maxAge > age) {
+    result = IAQmeasure();
+    age = millis();
+  }
+  if (result) {
+    return TVOC;
+  } else {
+    age = 0;
+    return -1;
+  }
+}
+
+/*!
+ *  @brief  Commands the sensor to take a single eCO2/VOC measurement, if the result is not older than {@link maxAge}. Places
+ *          results in {@link TVOC} and {@link eCO2}
+ *  @return {@link eCO2} if command completed successfully, -1 if something went
+ *          wrong!
+ */
+uint16_t Adafruit_SGP30::readECO2(long maxAge) {
+  bool result = true;
+  if (millis() - maxAge > age) {
+    result = IAQmeasure();
+    age = millis();
+  }
+  if (result) {
+    return eCO2;
+  } else {
+    age = 0;
+    return -1;
+  }
+}
+
+/*!
+ *  @brief  Commands the sensor to take a single H2/ethanol raw measurement, if the result is not older than {@link maxAge}.
+ *          Places results in {@link rawH2} and {@link rawEthanol}
+ *  @return {@link rawH2} if command completed successfully, -1 if something went
+ *          wrong!
+ */
+uint16_t Adafruit_SGP30::readRawH2(long maxAge) {
+  bool result = true;
+  if (millis() - maxAge > age) {
+    result = IAQmeasureRaw();
+    age = millis();
+  }
+  if (result) {
+    return rawH2;
+  } else {
+    age = 0;
+    return -1;
+  }
+}
+
+/*!
+ *  @brief  Commands the sensor to take a single H2/ethanol raw measurement, if the result is not older than {@link maxAge}.
+ *          Places results in {@link rawH2} and {@link rawEthanol}
+ *  @return {@link rawEthanol} if command completed successfully, -1 if something went
+ *          wrong!
+ */
+uint16_t Adafruit_SGP30::readRawEthanol(long maxAge) {
+  bool result = true;
+  if (millis() - maxAge > age) {
+    result = IAQmeasureRaw();
+    age = millis();
+  }
+  if (result) {
+    return rawEthanol;
+  } else {
+    age = 0;
+    return -1;
+  }
+}
+
+/*!
  *   @brief  Request baseline calibration values for both CO2 and TVOC IAQ
  *           calculations. Places results in parameter memory locaitons.
  *   @param  eco2_base

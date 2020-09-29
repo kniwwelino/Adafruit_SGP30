@@ -47,6 +47,11 @@ public:
   boolean IAQmeasure();
   boolean IAQmeasureRaw();
 
+  uint16_t readTVOC(long maxAge = 500);
+  uint16_t readECO2(long maxAge = 500);
+  uint16_t readRawH2(long maxAge = 500);
+  uint16_t readRawEthanol(long maxAge = 500);
+
   boolean getIAQBaseline(uint16_t *eco2_base, uint16_t *tvoc_base);
   boolean setIAQBaseline(uint16_t eco2_base, uint16_t tvoc_base);
   boolean setHumidity(uint32_t absolute_humidity);
@@ -79,5 +84,7 @@ private:
                            uint16_t delay, uint16_t *readdata = NULL,
                            uint8_t readlen = 0);
   uint8_t generateCRC(uint8_t data[], uint8_t datalen);
+
+  long age;
 };
 #endif // ndef ADAFRUIT_SGP30_H
