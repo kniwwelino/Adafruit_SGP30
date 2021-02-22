@@ -1,6 +1,6 @@
 This is an adaption of the Adafruit library to use it easily with Kniwwelino. 
 
-# Adafruit SGP30 Gas / Air Quality I2C sensor [![Build Status](https://github.com/kniwwelino/Adafruit_SGP30/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_SGP30/actions)[![Documentation](https://github.com/kniwwelino/ci-arduino/blob/master/assets/doxygen_badge.svg)](http://adafruit.github.io/Adafruit_SGP30/html/index.html)
+# Adafruit SGP30 Gas / Air Quality I2C sensor [![Build Status](https://github.com/kniwwelino/Adafruit_SGP30/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/kniwwelino/Adafruit_SGP30/actions)[![Documentation](https://github.com/kniwwelino/ci-arduino/blob/master/assets/doxygen_badge.svg)](http://adafruit.github.io/Adafruit_SGP30/html/index.html)
 
 <a href="https://www.adafruit.com/product/3709"><img src="assets/board.jpg?raw=true" width="500px"></a>
 
